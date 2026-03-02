@@ -1,3 +1,6 @@
+// Add this RIGHT AT THE TOP of server.js (line 1 & 2)
+import dns from 'node:dns/promises';
+dns.setServers(['1.1.1.1', '8.8.8.8']);  
 import express from "express"
 import cors from 'cors'
 import 'dotenv/config'
@@ -12,7 +15,7 @@ import orderRouter from "./routes/orderRoutes.js";
 // app config
 const app = express()
 const port = process.env.PORT || 4000
-connectDB()
+connectDB()   
 connectCloudinary()
 
 // middlewares
